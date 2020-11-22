@@ -1,0 +1,16 @@
+version: "3"
+services:
+  backend:
+    container_name: tour-of-heroes-api
+    image: tour-of-heroes-api
+    build: tour-of-heroes-api/.
+    ports:
+      - "8080:8080"
+  frontend:
+    container_name: tour-of-heroes-ui
+    image: tour-of-heroes-ui
+    build: frontend/.
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
